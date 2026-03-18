@@ -1,0 +1,132 @@
+.admin-users{
+padding:30px;
+background:#f5f7fb;
+min-height:100vh;
+}
+
+.page-title{
+font-size:28px;
+font-weight:700;
+margin-bottom:20px;
+}
+
+/* stats */
+
+.stats{
+display:flex;
+gap:20px;
+margin-bottom:25px;
+}
+
+.stat-card{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 3px 8px rgba(0,0,0,0.08);
+flex:1;
+}
+
+.stat-card h3{
+font-size:16px;
+color:#555;
+}
+
+.stat-card p{
+font-size:24px;
+font-weight:bold;
+margin-top:5px;
+}
+
+/* filters */
+
+.filters{
+display:flex;
+gap:10px;
+margin-bottom:20px;
+}
+
+.filters input{
+padding:10px;
+border:1px solid #ddd;
+border-radius:6px;
+width:250px;
+}
+
+.filters select{
+padding:10px;
+border-radius:6px;
+border:1px solid #ddd;
+}
+
+/* table */
+
+.table-card{
+background:white;
+border-radius:10px;
+box-shadow:0 3px 10px rgba(0,0,0,0.08);
+overflow:hidden;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+thead{
+background:#2563eb;
+color:white;
+}
+
+th,td{
+padding:12px;
+text-align:left;
+}
+
+tbody tr{
+border-top:1px solid #eee;
+}
+
+/* role badge */
+
+.role{
+padding:4px 10px;
+border-radius:20px;
+font-size:12px;
+text-transform:capitalize;
+}
+
+.role.admin{
+background:#fee2e2;
+color:#b91c1c;
+}
+
+.role.user{
+background:#dcfce7;
+color:#15803d;
+}
+
+/* buttons */
+
+.edit-btn{
+background:#22c55e;
+color:white;
+border:none;
+padding:6px 10px;
+border-radius:5px;
+cursor:pointer;
+margin-right:5px;
+}
+
+.delete-btn{
+background:#ef4444;
+color:white;
+border:none;
+padding:6px 10px;
+border-radius:5px;
+cursor:pointer;
+}
+
+.error{
+color:red;
+margin-bottom:10px;
+}
