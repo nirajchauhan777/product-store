@@ -1,35 +1,34 @@
+﻿import "../styles/AdminDashboardPage.css";
 import { Link } from "react-router-dom";
-import "../styles/AdminDashboardPage.css";
-import AdminLayout from "./AdminLayout";
 import DashboardGraf from "./DashboardGraf";
-
 
 export default function AdminDashboardPage() {
   return (
-    <div>
-   <h1>Admin Dashboard</h1>
+    <div className="admin-dashboard">
+      <header className="admin-dashboard__header">
+        <h1>Dashboard</h1>
+        <p>Quick snapshot of your store performance and recent activity.</p>
+      </header>
 
-   <DashboardGraf />
+      <section className="admin-dashboard__quick">
+        <h2>Quick actions</h2>
+        <div className="quick-actions">
+          <Link to="/admin/products" className="quick-action">
+            Manage products
+          </Link>
+          <Link to="/admin/orders" className="quick-action">
+            View orders
+          </Link>
+          <Link to="/admin/users" className="quick-action">
+            Manage users
+          </Link>
+          <Link to="/admin/carts" className="quick-action">
+            View carts
+          </Link>
+        </div>
+      </section>
 
-
-
-      {/* Sidebar */}
-     
-
-       
-
-
-        
-
-     
-     
-
-        
-
-      
-    
-
-     
+      <DashboardGraf />
     </div>
   );
 }

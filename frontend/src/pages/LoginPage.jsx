@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { login } from '../services/authService';
 import { useAuth } from '../context/AuthContext';
 import { setAuthToken } from '../services/api';
+import '../styles/AuthPage.css';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -31,37 +32,47 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="container" style={{ maxWidth: 480 }}>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit} style={{ display: 'grid', gap: 12 }}>
-        <label>
-          Email
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            style={{ width: '100%', padding: 8 }}
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            style={{ width: '100%', padding: 8 }}
-          />
-        </label>
+    <div className="auth-page">
+      <div className="auth-card">
+        <h1>Welcome back</h1>
+        <p style={{ margin: 0, color: 'rgba(31, 41, 55, 0.75)', marginBottom: '1.5rem' }}>
+          Sign in to access your cart, orders, and profile.
+        </p>
 
-        {error && <div style={{ color: 'red' }}>{error}</div>}
+        <form onSubmit={handleSubmit} className="auth-form">
+          <div className="auth-field">
+            <label htmlFor="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
 
-        <button type="submit">Login</button>
-      </form>
-      <p style={{ marginTop: 12 }}>
-        Don't have an account? <Link to="/register">Register</Link>
-      </p>
+          <div className="auth-field">
+            <label htmlFor="password">Password</label>
+            <input
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+
+          {error && <div className="auth-error">{error}</div>}
+
+          <button type="submit" className="auth-submit">
+            Login
+          </button>
+        </form>
+
+        <p className="auth-footer">
+          Don&apos;t have an account? <Link to="/register">Create one</Link>
+        </p>
+      </div>
     </div>
   );
 }

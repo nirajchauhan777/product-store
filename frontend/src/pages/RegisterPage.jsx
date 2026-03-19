@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { register } from '../services/authService';
+import '../styles/AuthPage.css';
 
 export default function RegisterPage() {
 
@@ -29,52 +30,57 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="container" style={{ maxWidth: 480 }}>
-      <h1>Register</h1>
+    <div className="auth-page">
+      <div className="auth-card">
+        <h1>Create your account</h1>
+        <p style={{ margin: 0, color: 'rgba(31, 41, 55, 0.75)', marginBottom: '1.5rem' }}>
+          Join now to save your favorites, track orders, and checkout faster.
+        </p>
 
-      <form onSubmit={handleSubmit} style={{ display: 'grid', gap: 12 }}>
+        <form onSubmit={handleSubmit} className="auth-form">
+          <div className="auth-field">
+            <label htmlFor="name">Name</label>
+            <input
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </div>
 
-        <label>
-          Name
-          <input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-            style={{ width: '100%', padding: 8 }}
-          />
-        </label>
+          <div className="auth-field">
+            <label htmlFor="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
 
-        <label>
-          Email
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)} 
-            required
-            style={{ width: '100%', padding: 8 }}
-          />
-        </label>
+          <div className="auth-field">
+            <label htmlFor="password">Password</label>
+            <input
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
 
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            style={{ width: '100%', padding: 8 }}
-          />
-        </label>
+          {error && <div className="auth-error">{error}</div>}
 
-        {error && <div style={{ color: 'red' }}>{error}</div>}
+          <button type="submit" className="auth-submit">
+            Create account
+          </button>
+        </form>
 
-        <button type="submit">Create account</button>
-
-      </form>
-
-      <p style={{ marginTop: 12 }}>
-        Already have an account? <Link to="/login">Login</Link>
-      </p>
+        <p className="auth-footer">
+          Already have an account? <Link to="/login">Login</Link>
+        </p>
+      </div>
     </div>
   );
 }
